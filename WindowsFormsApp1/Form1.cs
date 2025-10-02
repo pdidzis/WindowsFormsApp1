@@ -200,7 +200,7 @@ namespace WindowsFormsApp1
 
         private string GetSecondOperandText()
         {
-            int index = txtDisplay.Text.LastIndexOfAny(new char[] { '+', '-', '*', '/' });
+            int index = txtDisplay.Text.LastIndexOfAny(new char[] { '+', '-', '*', '/', '√' });
             if (index >= 0 && index < txtDisplay.Text.Length - 1)
             {
                 return txtDisplay.Text.Substring(index + 1).Trim();
@@ -236,6 +236,19 @@ namespace WindowsFormsApp1
                             firstNumber *= secondNumber;
                             label1.Text = "";
                             break;
+                        case "√":
+                            if (secondNumber == 0)
+                            {
+                                MessageBox.Show("Cannot take 0th root.");
+                                return;
+                            }
+                            firstNumber = Math.Pow(firstNumber, 1.0 / secondNumber);
+                            label1.Text = "";
+                            break;
+
+
+
+
                         case "/":
                             if (secondNumber != 0) 
                             { 
@@ -259,7 +272,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    MessageBox.Show("Invalid second operand.");
+                    MessageBox.Show("Invalid second operation.");
                 }
             }
             catch
@@ -275,7 +288,22 @@ namespace WindowsFormsApp1
 
         private void bt_root_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (!string.IsNullOrEmpty(txtDisplay.Text))
+                {
+                    firstNumber = Convert.ToDouble(txtDisplay.Text);
+                    operation = "√";
+                    isOperationPressed = true;
+                    label1.Text = $"√ of {firstNumber}";
+                    txtDisplay.Text = firstNumber.ToString() + " √ ";
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid input for root.");
+            }
         }
+
     }
 }
