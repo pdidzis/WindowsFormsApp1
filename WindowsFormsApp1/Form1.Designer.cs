@@ -47,6 +47,8 @@
             this.bt_divide = new System.Windows.Forms.Button();
             this.bt_3 = new System.Windows.Forms.Button();
             this.bt_star = new System.Windows.Forms.Button();
+            this.bt_root = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bt_1
@@ -63,7 +65,7 @@
             // txtDisplay
             // 
             this.txtDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.txtDisplay.Location = new System.Drawing.Point(63, 24);
+            this.txtDisplay.Location = new System.Drawing.Point(63, 27);
             this.txtDisplay.Multiline = true;
             this.txtDisplay.Name = "txtDisplay";
             this.txtDisplay.ReadOnly = true;
@@ -260,12 +262,33 @@
             this.bt_star.UseVisualStyleBackColor = true;
             this.bt_star.Click += new System.EventHandler(this.bt_star_Click);
             // 
+            // bt_root
+            // 
+            this.bt_root.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.bt_root.Location = new System.Drawing.Point(366, 287);
+            this.bt_root.Name = "bt_root";
+            this.bt_root.Size = new System.Drawing.Size(94, 65);
+            this.bt_root.TabIndex = 21;
+            this.bt_root.Text = "√";
+            this.bt_root.UseVisualStyleBackColor = true;
+            this.bt_root.Click += new System.EventHandler(this.bt_root_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(73, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(576, 431);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.bt_root);
             this.Controls.Add(this.bt_star);
             this.Controls.Add(this.bt_3);
             this.Controls.Add(this.bt_divide);
@@ -314,6 +337,8 @@
         private System.Windows.Forms.Button bt_divide;
         private System.Windows.Forms.Button bt_3;
         private System.Windows.Forms.Button bt_star;
+        private System.Windows.Forms.Button bt_root;
+        private System.Windows.Forms.Label label1;
     }
 }
 

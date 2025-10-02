@@ -104,6 +104,7 @@ namespace WindowsFormsApp1
         private void bt_c_Click(object sender, EventArgs e)
         {
             txtDisplay.Text = "";
+            label1.Text = "";
             firstNumber = 0;
             secondNumber = 0;
             operation = "";
@@ -124,6 +125,7 @@ namespace WindowsFormsApp1
             {
                 if (txtDisplay.Text != "")
                 {
+                    label1.Text = "+";
                     firstNumber = Convert.ToDouble(txtDisplay.Text);
                     operation = "+";
                     isOperationPressed = true;
@@ -142,6 +144,7 @@ namespace WindowsFormsApp1
             {
                 if (txtDisplay.Text != "")
                 {
+                    label1.Text = "-";
                     firstNumber = Convert.ToDouble(txtDisplay.Text);
                     operation = "-";
                     isOperationPressed = true;
@@ -160,16 +163,20 @@ namespace WindowsFormsApp1
             {
                 if (txtDisplay.Text != "")
                 {
+                    label1.Text = "*";
                     firstNumber = Convert.ToDouble(txtDisplay.Text);
                     operation = "*";
                     isOperationPressed = true;
                     txtDisplay.Text = firstNumber.ToString() + " * ";
+                    
+
                 }
             }
             catch
             {
                 MessageBox.Show("Invalid input for multiplication.");
             }
+          
         }
 
         private void bt_divide_Click(object sender, EventArgs e)
@@ -178,6 +185,7 @@ namespace WindowsFormsApp1
             {
                 if (txtDisplay.Text != "")
                 {
+                    label1.Text = "/";
                     firstNumber = Convert.ToDouble(txtDisplay.Text);
                     operation = "/";
                     isOperationPressed = true;
@@ -216,20 +224,29 @@ namespace WindowsFormsApp1
                     switch (operation)
                     {
                         case "+":
+                            
                             firstNumber += secondNumber;
+                            label1.Text = "";
                             break;
                         case "-":
                             firstNumber -= secondNumber;
                             break;
+                            label1.Text = "";
                         case "*":
                             firstNumber *= secondNumber;
+                            label1.Text = "";
                             break;
                         case "/":
-                            if (secondNumber != 0)
+                            if (secondNumber != 0) 
+                            { 
+                                label1.Text = "";
                                 firstNumber /= secondNumber;
+                            }
+
                             else
                             {
                                 MessageBox.Show("Cannot divide by zero.");
+                                label1.Text = "";
                                 return;
                             }
                             break;
@@ -252,6 +269,11 @@ namespace WindowsFormsApp1
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_root_Click(object sender, EventArgs e)
         {
 
         }
